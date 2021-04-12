@@ -27,7 +27,7 @@ class MainViewModel(
     fun getUserData() {
         _actionView.value = MainViewAction.Loading(true)
         mUiScope.launch {
-             execute()
+            execute()
         }
     }
 

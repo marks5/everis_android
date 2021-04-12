@@ -1,7 +1,6 @@
 package br.com.everis.sovamu.di
 
 import br.com.everis.sovamu.ui.MainViewModel
-import br.com.everis.sovamu.usecase.MainUseCaseImpl
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
