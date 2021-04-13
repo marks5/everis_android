@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SoVamu</string>
+    <string name="txt_email">e-mail</string>
+    <string name="txt_senha">senha</string>
+    <string name="btn_entrar">ENTRAR</string>
+    <string name="txt_esqueci_senha">Esqueci minha senha</string>
 </resources>

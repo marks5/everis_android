@@ -1,6 +1,6 @@
-package br.com.everis.sovamu.network
+package br.com.everis.sovamu.feature.login.network
 
-import br.com.everis.sovamu.model.UserData
+import br.com.everis.sovamu.feature.login.model.UserData
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET

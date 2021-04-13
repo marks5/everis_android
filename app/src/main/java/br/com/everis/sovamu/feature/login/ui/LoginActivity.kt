@@ -1,4 +1,4 @@
-package br.com.everis.sovamu.ui
+package br.com.everis.sovamu.feature.login.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.everis.sovamu.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-private const val TAG = "MainActivity"
+private const val TAG = "LoginActivity"
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    private val mainViewModel by viewModel<MainViewModel>()
+    private val mainViewModel by viewModel<LoginViewModel>()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.actionView.observe(this, { state ->
             when (state) {
-                is MainViewAction.Success -> {
+                is LoginViewAction.Success -> {
                     Log.d(TAG, "Name: ${state.data.name}, Email: ${state.data.email}")
                 }
-                is MainViewAction.Loading -> {
+                is LoginViewAction.Loading -> {
 
                 }
-                is MainViewAction.Error -> {
+                is LoginViewAction.Error -> {
 
                 }
             }

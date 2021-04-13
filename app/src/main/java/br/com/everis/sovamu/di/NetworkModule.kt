@@ -1,7 +1,6 @@
 package br.com.everis.sovamu.di
 
 import br.com.everis.sovamu.BuildConfig
-import br.com.everis.sovamu.network.EverisApi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,6 +25,4 @@ val networkModule = module {
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
     }
-
-    factory { get<Retrofit>().create(EverisApi::class.java) }
 }
