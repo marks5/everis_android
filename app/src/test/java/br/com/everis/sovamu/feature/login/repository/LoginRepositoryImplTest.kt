@@ -1,7 +1,8 @@
-package br.com.everis.sovamu.repository
+package br.com.everis.sovamu.feature.login.repository
 
-import br.com.everis.sovamu.model.UserData
-import br.com.everis.sovamu.network.EverisApi
+import br.com.everis.sovamu.feature.login.model.UserData
+import br.com.everis.sovamu.feature.login.network.EverisApi
+import br.com.everis.sovamu.feature.login.repository.LoginRepositoryImpl
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -14,15 +15,15 @@ import org.junit.runners.JUnit4
 import retrofit2.Response
 
 @RunWith(JUnit4::class)
-class UserRepositoryImplTest {
+class LoginRepositoryImplTest {
 
-    private lateinit var repository: UserRepositoryImpl
+    private lateinit var repository: LoginRepositoryImpl
     private val api = mockk<EverisApi>()
     private val mockResponse = mockk<Response<UserData>>()
 
     @Before
     fun setup() {
-        repository = UserRepositoryImpl(api)
+        repository = LoginRepositoryImpl(api)
     }
 
     @Test

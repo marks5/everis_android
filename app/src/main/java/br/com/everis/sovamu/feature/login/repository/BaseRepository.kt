@@ -1,4 +1,4 @@
-package br.com.everis.sovamu.repository
+package br.com.everis.sovamu.feature.login.repository
 
 import br.com.everis.sovamu.functional.Either
 import retrofit2.Response

@@ -1,8 +1,10 @@
-package br.com.everis.sovamu.usecase
+package br.com.everis.sovamu.feature.login.usecase
 
+import br.com.everis.sovamu.feature.login.model.UserData
+import br.com.everis.sovamu.feature.login.repository.LoginRepositoryImpl
+import br.com.everis.sovamu.feature.login.usecase.LoginUseCaseImpl
 import br.com.everis.sovamu.functional.Either
-import br.com.everis.sovamu.model.UserData
-import br.com.everis.sovamu.repository.UserRepositoryImpl
+
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -13,14 +15,14 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
-class MainUseCaseImplTest {
+class LoginUseCaseImplTest {
 
-    private lateinit var useCase: MainUseCaseImpl
-    private val repository = mockk<UserRepositoryImpl>()
+    private lateinit var useCase: LoginUseCaseImpl
+    private val repository = mockk<LoginRepositoryImpl>()
 
     @Before
     fun setup() {
-        useCase = MainUseCaseImpl(repository)
+        useCase = LoginUseCaseImpl(repository)
     }
 
     @Test

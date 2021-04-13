@@ -1,11 +1,10 @@
-package br.com.everis.sovamu.ui
+package br.com.everis.sovamu.feature.login.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import br.com.everis.sovamu.feature.login.model.UserData
+import br.com.everis.sovamu.feature.login.usecase.LoginUseCase
 import br.com.everis.sovamu.functional.Either
-import br.com.everis.sovamu.model.UserData
-import br.com.everis.sovamu.usecase.MainUseCase
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.atLeast
 import com.nhaarman.mockitokotlin2.verify
 import io.mockk.coEvery
@@ -23,22 +22,22 @@ import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
 @RunWith(JUnit4::class)
-class MainViewModelTest {
+class LoginViewModelTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val mDispatcher = Dispatchers.Unconfined
-    private lateinit var viewModel: MainViewModel
-    private val useCase: MainUseCase = mockk()
+    private lateinit var viewModel: LoginViewModel
+    private val useCase: LoginUseCase = mockk()
 
     @Mock
-    lateinit var observer: Observer<MainViewAction>
+    lateinit var observer: Observer<LoginViewAction>
 
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        viewModel = MainViewModel(useCase, mDispatcher, mDispatcher)
+        viewModel = LoginViewModel(useCase, mDispatcher, mDispatcher)
         viewModel.actionView.observeForever(observer)
     }
 
@@ -52,8 +51,8 @@ class MainViewModelTest {
         viewModel.getUserData()
 
         assertNotNull(viewModel.actionView.value)
-        verify(observer, atLeast(2)).onChanged(isA(MainViewAction.Loading::class.java))
-        verify(observer).onChanged(isA(MainViewAction.Success::class.java))
+        verify(observer, atLeast(2)).onChanged(isA(LoginViewAction.Loading::class.java))
+        verify(observer).onChanged(isA(LoginViewAction.Success::class.java))
         coVerify { useCase.execute() }
     }
 
@@ -66,8 +65,8 @@ class MainViewModelTest {
         viewModel.getUserData()
 
         assertNotNull(viewModel.actionView.value)
-        verify(observer, atLeast(2)).onChanged(isA(MainViewAction.Loading::class.java))
-        verify(observer).onChanged(isA(MainViewAction.Error::class.java))
+        verify(observer, atLeast(2)).onChanged(isA(LoginViewAction.Loading::class.java))
+        verify(observer).onChanged(isA(LoginViewAction.Error::class.java))
         coVerify { useCase.execute() }
     }
 }

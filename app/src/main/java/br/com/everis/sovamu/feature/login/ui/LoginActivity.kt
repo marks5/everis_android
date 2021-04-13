@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity(), ILoginUI {
         }
     }
 
-    override fun observeData(data: LoginUI) {
+    override fun observeData(data: LoginUI?) {
         mainViewModel.getUserData()
 
         mainViewModel.actionView.observe(this, { state ->
@@ -47,6 +47,6 @@ class LoginActivity : AppCompatActivity(), ILoginUI {
     }
 
     override fun showError(msgError: String) {
-        binding.login.msgError = msgError
+        binding.login?.msgError = msgError
     }
 }
