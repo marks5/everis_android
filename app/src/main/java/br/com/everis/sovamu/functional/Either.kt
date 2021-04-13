@@ -55,6 +55,7 @@ sealed class Either<out L, out R> {
 }
 
 
+
 /**
  * Composes 2 functions
  * See <a href="https://proandroiddev.com/kotlins-nothing-type-946de7d464fb">Credits to Alex Hart.</a>

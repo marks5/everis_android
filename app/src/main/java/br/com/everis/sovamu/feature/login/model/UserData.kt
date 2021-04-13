@@ -1,4 +1,4 @@
-package br.com.everis.sovamu.model
+package br.com.everis.sovamu.feature.login.model
 
 data class UserData(
     var name: String,

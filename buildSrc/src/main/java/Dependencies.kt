@@ -24,9 +24,9 @@ object Libs {
     }
 
     object OkHttp {
-        private const val version = "3.12.0"
+        private const val version = "4.9.0"
         const val okHttp = "com.squareup.okhttp3:okhttp:$version"
-        const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:4.1.0"
+        const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
 
     object Kotlin {
