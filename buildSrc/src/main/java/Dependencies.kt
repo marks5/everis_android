@@ -3,11 +3,10 @@ package everis_android.buildSrc
 object Libs {
 
     object Koin {
-        private const val version = "2.2.2"
+        private const val version = "2.0.1"
         const val koinCore = "org.koin:koin-android:$version"
         const val koinExt = "org.koin:koin-androidx-viewmodel:$version"
         const val koinTest = "org.koin:koin-test:$version"
-        const val pluginKoin = "org.koin:koin-gradle-plugin:$version"
     }
 
     object Room {
@@ -29,38 +28,9 @@ object Libs {
         const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:4.1.0"
     }
 
-    object Kotlin {
+    object Coroutines {
         private const val version = "1.0.1"
-        private const val kotlinVersion = "1.4.31"
-        const val pluginKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
     }
-
-    object Gson {
-        private const val version = "2.8.5"
-        const val googleGson = "com.google.code.gson:gson:$version"
-    }
-
-    object Test {
-        private const val junitVersion = "4.13.2"
-        private const val jUnitExtVersion = "1.1.2"
-        private const val espressoVersion = "3.3.0"
-        const val jUnit = "junit:junit:$junitVersion"
-        const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
-        const val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
-    }
-
-    object Material {
-        private const val version = "1.3.0"
-        const val materialDesign = "com.google.android.material:material:$version"
-    }
-
-    object Androidx {
-        const val androidxCore = "androidx.core:core-ktx:1.3.2"
-        const val appCompat = "androidx.appcompat:appcompat:1.2.0"
-        const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
-    }
-
 }

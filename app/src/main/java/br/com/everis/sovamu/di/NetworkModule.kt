@@ -20,11 +20,11 @@ val networkModule = module {
         val client = OkHttpClient().newBuilder().addInterceptor(loggingInterceptor).build()
 
         Retrofit.Builder()
-                .client(client)
-                .baseUrl(BuildConfig.BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .build()
+            .client(client)
+            .baseUrl(BuildConfig.SERVER_URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
     }
 
     factory { get<Retrofit>().create(EverisApi::class.java) }

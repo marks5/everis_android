@@ -7,5 +7,5 @@ import br.com.everis.sovamu.repository.UserRepository
 class MainUseCaseImpl(private val userRepository: UserRepository) : MainUseCase {
 
     override suspend fun execute(): Either<String, UserData> =
-        userRepository.getUserData()
+       userRepository.getUserData()
 }
