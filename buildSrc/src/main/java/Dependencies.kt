@@ -47,9 +47,15 @@ object Libs {
         private const val junitVersion = "4.13.2"
         private const val jUnitExtVersion = "1.1.2"
         private const val espressoVersion = "3.3.0"
+        private const val mockkVersion = "1.9.3"
+        private const val mockitoVersion = "2.2.0"
+
         const val jUnit = "junit:junit:$junitVersion"
         const val jUnitExt = "androidx.test.ext:junit:$jUnitExtVersion"
         const val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
+        const val mockk = "io.mockk:mockk:$mockkVersion"
+        const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
+        const val androidCore = "androidx.arch.core:core-testing:2.1.0"
     }
 
     object Material {

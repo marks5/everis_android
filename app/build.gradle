@@ -59,6 +59,11 @@ dependencies {
     implementation Libs.Material.materialDesign
 
     testImplementation Libs.Test.jUnit
+    testImplementation Libs.Test.mockk
+    testImplementation Libs.Test.mockito
+    testImplementation Libs.Test.androidCore
+
+    androidTestImplementation Libs.Test.androidCore
     androidTestImplementation Libs.Test.jUnitExt
     androidTestImplementation Libs.Test.espresso
 
