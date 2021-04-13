@@ -1,6 +1,5 @@
 package br.com.everis.sovamu.feature.login.ui.viewmodel
 
-import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -25,7 +24,7 @@ class LoginViewModel(
         ioDispatcher: CoroutineDispatcher
 ) : BaseViewModel(mainDispatcher, ioDispatcher) {
 
-    private val _loginUi by lazy { MutableLiveData<LoginUI>() }
+    private val _loginUi by lazy {  MutableLiveData<LoginUI>() }
     val loginUI: LiveData<LoginUI>
         get() = _loginUi
 
@@ -49,7 +48,6 @@ class LoginViewModel(
     }
 
     private fun isFormValid(loginUI: LoginUI): Boolean {
-        Log.d("MVVM", loginUI.toString())
         return Patterns.EMAIL_ADDRESS.matcher(loginUI.email).matches() && loginUI.senha.isNotEmpty()
     }
 

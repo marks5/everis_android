@@ -43,6 +43,11 @@ object Libs {
         const val googleGson = "com.google.code.gson:gson:$version"
     }
 
+    object Log {
+        private const val version = "4.7.1"
+        const val timber = "com.jakewharton.timber:timber:$version"
+    }
+
     object Test {
         private const val junitVersion = "4.13.2"
         private const val jUnitExtVersion = "1.1.2"

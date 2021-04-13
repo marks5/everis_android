@@ -1,13 +1,12 @@
 package br.com.everis.sovamu.feature.login.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import br.com.everis.sovamu.databinding.ActivityMainBinding
-import br.com.everis.sovamu.feature.login.model.LoginUI
 import br.com.everis.sovamu.feature.login.ui.viewmodel.LoginViewAction
 import br.com.everis.sovamu.feature.login.ui.viewmodel.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 private const val TAG = "LoginActivity"
 
@@ -26,11 +25,11 @@ class LoginActivity : AppCompatActivity() {
         observeData()
     }
 
-    fun observeData() {
+    private fun observeData() {
         mainViewModel.actionView.observe(this, { state ->
             when (state) {
                 is LoginViewAction.Success -> {
-                    Log.d(TAG, "Name: ${state.data.name}, Email: ${state.data.email}")
+                    Timber.d("$TAG Name: %s, Email: %s", state.data.name, state.data.email)
                 }
                 is LoginViewAction.Loading -> {
                 }

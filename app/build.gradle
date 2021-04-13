@@ -79,4 +79,6 @@ dependencies {
     implementation Libs.Kotlin.coroutines
     implementation Libs.Kotlin.core
     implementation Libs.Gson.googleGson
+
+    implementation Libs.Log.timber
 }
