@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="login"
-            type="br.com.everis.sovamu.feature.login.model.LoginUI" />
+            name="viewmodel"
+            type="br.com.everis.sovamu.feature.login.ui.viewmodel.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,10 +56,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/txt_email"
-                        android:text="@{login.email}" />
+                        android:text="@{viewmodel.loginUI.email}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -74,48 +76,52 @@
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:ellipsize="end"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/txt_senha"
-                        android:text="@{login.senha}" />
+                        android:text="@{viewmodel.loginUI.senha}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    android:visibility="invisible"
                     android:id="@+id/tvErrorLogin"
+                    setErrorVisibility="@{viewmodel.loginUI.msgError}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@{login.msgError}"
-                    setErrorVisibility="@{login.msgError}"
-                    app:layout_constraintBottom_toTopOf="@+id/button"
+                    android:text="@{viewmodel.loginUI.msgError}"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:enabled="@{viewmodel.valid}"
+                    android:onClick="@{() -> viewmodel.getUserData()}"
+                    android:id="@+id/btnEntrar"
                     style="@style/BtnLoginSoVamu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/btn_entrar"
                     app:layout_constraintBottom_toTopOf="@+id/tvLoginEsqueciSenha"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvErrorLogin" />
 
                 <TextView
-                    android:layout_margin="5dp"
                     android:id="@+id/tvLoginEsqueciSenha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:text="@string/txt_esqueci_senha"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/button"
-                    app:layout_constraintStart_toStartOf="@+id/button"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
+                    app:layout_constraintEnd_toEndOf="@+id/btnEntrar"
+                    app:layout_constraintStart_toStartOf="@+id/btnEntrar"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

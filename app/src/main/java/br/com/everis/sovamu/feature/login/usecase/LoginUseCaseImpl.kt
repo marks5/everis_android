@@ -6,6 +6,6 @@ import br.com.everis.sovamu.feature.login.repository.LoginRepository
 
 class LoginUseCaseImpl(private val loginRepository: LoginRepository) : LoginUseCase {
 
-    override suspend fun execute(): Either<String, UserData> =
-       loginRepository.getUserData()
+    override suspend fun execute(user: String, password: String): Either<String, UserData> =
+        loginRepository.getUserData()
 }
