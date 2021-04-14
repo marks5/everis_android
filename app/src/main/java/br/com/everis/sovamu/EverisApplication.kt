@@ -5,10 +5,9 @@ import br.com.everis.sovamu.di.appComponent
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
+import timber.log.Timber.DebugTree
 
 class EverisApplication : Application() {
-
-    private val everisTag = "EVERIS_APP_ANDROID"
 
     override fun onCreate() {
         super.onCreate()
@@ -16,7 +15,10 @@ class EverisApplication : Application() {
             androidContext(this@EverisApplication)
             modules(provideDependency())
         }
-        Timber.tag(everisTag)
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(DebugTree())
+        }
     }
 
     private fun provideDependency() = appComponent
