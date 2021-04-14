@@ -69,4 +69,11 @@ object Libs {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
     }
 
+    object Navigation {
+        private const val version = "2.3.0"
+        const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$version"
+        const val navigationUi = "androidx.navigation:navigation-ui-ktx:$version"
+        const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:$version"
+    }
+
 }

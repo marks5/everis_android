@@ -5,4 +5,5 @@
     <string name="btn_entrar">ENTRAR</string>
     <string name="txt_esqueci_senha">Esqueci minha senha</string>
     <string name="imageContentDescription">Logo do aplicativo</string>
+    <string name="text_task">Trilho</string>
 </resources>
