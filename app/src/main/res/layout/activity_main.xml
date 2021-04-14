@@ -89,13 +89,13 @@
                     android:layout_marginBottom="8dp"
                     android:text="@{login.msgError}"
                     setErrorVisibility="@{login.msgError}"
-                    app:layout_constraintBottom_toTopOf="@+id/button"
+                    app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnEntrar"
                     style="@style/BtnLoginSoVamu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -113,9 +113,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/txt_esqueci_senha"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/button"
-                    app:layout_constraintStart_toStartOf="@+id/button"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
+                    app:layout_constraintEnd_toEndOf="@+id/btnEntrar"
+                    app:layout_constraintStart_toStartOf="@+id/btnEntrar"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

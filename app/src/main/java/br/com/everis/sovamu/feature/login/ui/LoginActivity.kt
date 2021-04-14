@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.everis.sovamu.databinding.ActivityMainBinding
 import br.com.everis.sovamu.feature.login.model.LoginUI
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 private const val TAG = "LoginActivity"
 
@@ -19,18 +20,16 @@ class LoginActivity : AppCompatActivity(), ILoginUI {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener {
+        binding.btnEntrar.setOnClickListener {
             observeData(binding.login)
         }
     }
 
     override fun observeData(data: LoginUI?) {
-        mainViewModel.getUserData()
-
         mainViewModel.actionView.observe(this, { state ->
             when (state) {
                 is LoginViewAction.Success -> {
-                    Log.d(TAG, "Name: ${state.data.name}, Email: ${state.data.email}")
+                    Timber.d("Name: ${state.data.name}, Email: ${state.data.email}")
                 }
                 is LoginViewAction.Loading -> {
                     showLoading(state.loading)
@@ -43,7 +42,7 @@ class LoginActivity : AppCompatActivity(), ILoginUI {
     }
 
     override fun showLoading(loading: Boolean) {
-        TODO("Not yet implemented")
+
     }
 
     override fun showError(msgError: String) {

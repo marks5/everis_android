@@ -29,6 +29,11 @@ object Libs {
         const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
 
+    object Log {
+        private const val version = "4.7.1"
+        const val timber = "com.jakewharton.timber:timber:$version"
+    }
+
     object Kotlin {
         private const val version = "1.0.1"
         private const val kotlinVersion = "1.4.31"
