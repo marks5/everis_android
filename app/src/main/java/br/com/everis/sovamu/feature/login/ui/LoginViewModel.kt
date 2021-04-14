@@ -1,7 +1,6 @@
 package br.com.everis.sovamu.feature.login.ui
 
 import android.util.Patterns
-import androidx.databinding.InverseMethod
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -69,7 +68,7 @@ class LoginViewModel(
     }
 
     private fun showError(message: String) {
-        mUiScope.runCatching {
+        mUiScope.launch {
             _actionView.postValue(LoginViewAction.Loading(false))
         }
         _actionView.postValue(LoginViewAction.Error(message))
