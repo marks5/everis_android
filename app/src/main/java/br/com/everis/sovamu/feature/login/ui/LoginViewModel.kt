@@ -1,6 +1,6 @@
 package br.com.everis.sovamu.feature.login.ui
 
-import android.util.Patterns
+import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -94,7 +94,7 @@ class LoginViewModel(
 
     private fun isFormValid() {
         clearError()
-        isValid.value = Patterns.EMAIL_ADDRESS.matcher(email.value.toString())
+        _isValid.value = PatternsCompat.EMAIL_ADDRESS.matcher(email.value.toString())
             .matches() && senha.value.toString().isNotEmpty()
     }
 }
