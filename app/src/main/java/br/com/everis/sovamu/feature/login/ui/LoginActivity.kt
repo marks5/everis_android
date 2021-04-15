@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import br.com.everis.sovamu.R
 import br.com.everis.sovamu.databinding.ActivityMainBinding
 import br.com.everis.sovamu.feature.login.binding.SoVamuTextWatcher
+import br.com.everis.sovamu.feature.login.dialog.LoginDialog
 import br.com.everis.sovamu.feature.login.model.LoginUI
 import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,6 +34,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding.edtEmail.addTextChangedListener(SoVamuTextWatcher(viewModel = mainViewModel, SoVamuTextWatcher.Identifier.EMAIL))
         binding.edtPassword.addTextChangedListener(SoVamuTextWatcher(viewModel = mainViewModel, SoVamuTextWatcher.Identifier.PASSWORD))
+
+        binding.tvLoginEsqueciSenha.setOnClickListener {
+            LoginDialog(window.decorView as ViewGroup,this).showMyPasswordDialog()
+        }
+
     }
 
     private fun observeData() {

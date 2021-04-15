@@ -6,4 +6,5 @@
     <string name="txt_esqueci_senha">Esqueci minha senha</string>
     <string name="imageContentDescription">Logo do aplicativo</string>
     <string name="txt_carregando">CARREGANDO...</string>
+    <string name="dialog_informe_email">Informe seu e-mail</string>
 </resources>
