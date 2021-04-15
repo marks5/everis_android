@@ -38,10 +38,10 @@ class LoginActivity : AppCompatActivity() {
         mainViewModel.actionView.observe(this, { state ->
             when (state) {
                 is LoginViewAction.Success -> {
-                    Timber.d("Name: ${state.data.name}, Email: ${state.data.email}")
+                    Timber.tag(TAG).d("Name: ${state.data.name}, Email: ${state.data.email}")
                 }
                 is LoginViewAction.Loading -> {
-                    Timber.d("${state.loading}")
+                    Timber.tag(TAG).d("${state.loading}")
                     enableBtnEntrar(state.loading)
                 }
                 is LoginViewAction.Error -> {
