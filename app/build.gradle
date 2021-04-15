@@ -48,6 +48,14 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    testOptions {
+        animationsDisabled true
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -62,6 +70,7 @@ dependencies {
     testImplementation Libs.Test.mockk
     testImplementation Libs.Test.mockito
     testImplementation Libs.Test.androidCore
+    testImplementation Libs.Test.ktxjUnit
 
     androidTestImplementation Libs.Test.androidCore
     androidTestImplementation Libs.Test.jUnitExt

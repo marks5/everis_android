@@ -61,6 +61,8 @@ object Libs {
         const val mockk = "io.mockk:mockk:$mockkVersion"
         const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
         const val androidCore = "androidx.arch.core:core-testing:2.1.0"
+        const val ktxjUnit = "androidx.test.ext:junit-ktx:$jUnitExtVersion"
+
     }
 
     object Material {
