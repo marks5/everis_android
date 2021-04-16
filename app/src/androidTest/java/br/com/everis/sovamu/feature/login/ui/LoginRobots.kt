@@ -14,7 +14,6 @@ import br.com.everis.sovamu.R
 import org.hamcrest.CoreMatchers.not
 import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
 class LoginRobots {
 
     private val EMAIL = "teste@teste.com"
