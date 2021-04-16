@@ -1,7 +1,7 @@
 package br.com.everis.sovamu.feature.login.model
 
 data class LoginUI(
-        val email: String,
-        val senha: String,
+        var email: String,
+        var senha: String,
         var msgError: String
 )

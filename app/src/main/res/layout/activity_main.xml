@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="login"
-            type="br.com.everis.sovamu.feature.login.model.LoginUI" />
+            name="viewModel"
+            type="br.com.everis.sovamu.feature.login.ui.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
                     android:contentDescription="@string/imageContentDescription"
-                    app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+                    app:layout_constraintBottom_toTopOf="@+id/tiEmail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout2"
+                    android:id="@+id/tiEmail"
                     style="@style/TextInputSoVamu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -56,10 +56,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtEmail"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/txt_email"
-                        android:text="@{login.email}" />
+                        android:text="@{viewModel.email}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -70,14 +73,17 @@
                     app:layout_constraintBottom_toTopOf="@+id/tvErrorLogin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+                    app:layout_constraintStart_toStartOf="@+id/tiEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/tiEmail">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPassword"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/txt_senha"
-                        android:text="@{login.senha}" />
+                        android:text="@{viewModel.senha}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -87,22 +93,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@{login.msgError}"
-                    setErrorVisibility="@{login.msgError}"
-                    app:layout_constraintBottom_toTopOf="@+id/button"
+                    android:text="@{viewModel.msgError}"
+                    setErrorVisibility="@{viewModel.msgError}"
+                    app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:onClick="@{() -> viewModel.getUserData()}"
+                    android:enabled="@{viewModel.isValid()}"
+                    android:id="@+id/btnEntrar"
                     style="@style/BtnLoginSoVamu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/btn_entrar"
                     app:layout_constraintBottom_toTopOf="@+id/tvLoginEsqueciSenha"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvErrorLogin" />
 
@@ -113,9 +120,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/txt_esqueci_senha"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/button"
-                    app:layout_constraintStart_toStartOf="@+id/button"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
+                    app:layout_constraintEnd_toEndOf="@+id/btnEntrar"
+                    app:layout_constraintStart_toStartOf="@+id/btnEntrar"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

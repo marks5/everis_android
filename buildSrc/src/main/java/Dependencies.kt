@@ -29,6 +29,11 @@ object Libs {
         const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
 
+    object Log {
+        private const val version = "4.7.1"
+        const val timber = "com.jakewharton.timber:timber:$version"
+    }
+
     object Kotlin {
         private const val version = "1.0.1"
         private const val kotlinVersion = "1.4.31"
@@ -56,6 +61,8 @@ object Libs {
         const val mockk = "io.mockk:mockk:$mockkVersion"
         const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
         const val androidCore = "androidx.arch.core:core-testing:2.1.0"
+        const val ktxjUnit = "androidx.test.ext:junit-ktx:$jUnitExtVersion"
+
     }
 
     object Material {
