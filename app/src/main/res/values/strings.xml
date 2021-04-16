@@ -10,4 +10,5 @@
     <string name="daily_s">Daily`s</string>
     <string name="blocks">Impedimentos</string>
     <string name="todo">TODO</string>
+    <string name="txt_carregando">CARREGANDO…</string>
 </resources>
