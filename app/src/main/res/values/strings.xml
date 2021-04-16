@@ -6,4 +6,8 @@
     <string name="txt_esqueci_senha">Esqueci minha senha</string>
     <string name="imageContentDescription">Logo do aplicativo</string>
     <string name="text_task">Trilho</string>
+    <string name="scrum">Scrum</string>
+    <string name="daily_s">Daily`s</string>
+    <string name="blocks">Impedimentos</string>
+    <string name="todo">TODO</string>
 </resources>

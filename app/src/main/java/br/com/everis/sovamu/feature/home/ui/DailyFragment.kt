@@ -5,20 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import br.com.everis.sovamu.databinding.FragmentHomeBinding
+import br.com.everis.sovamu.databinding.FragmentDailyBinding
 
-class HomeFragment : Fragment() {
+class DailyFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentDailyBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        binding = FragmentDailyBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

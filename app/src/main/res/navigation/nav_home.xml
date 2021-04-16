@@ -8,8 +8,8 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="br.com.everis.sovamu.feature.home.ui.HomeFragment"
+        android:name="br.com.everis.sovamu.feature.home.ui.ScrumFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_scrum"/>
 
 </navigation>
