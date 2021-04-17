@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.everis.sovamu.databinding.FragmentScrumBinding
 import br.com.everis.sovamu.feature.home.model.mockList
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ScrumFragment : Fragment() {
 
     private lateinit var binding: FragmentScrumBinding
     private lateinit var scrumAdapter: ScrumAdapter
+    private val viewModel by viewModel<ScrumViewModel>()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -19,6 +21,8 @@ class ScrumFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         binding = FragmentScrumBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
@@ -27,5 +31,9 @@ class ScrumFragment : Fragment() {
         scrumAdapter = ScrumAdapter(mutableListOf())
         binding.rvTask.adapter = scrumAdapter
         scrumAdapter.updateList(mockList)
+
+        binding.tvDate.setOnClickListener {
+            viewModel.addDay()
+        }
     }
 }

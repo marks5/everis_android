@@ -99,4 +99,5 @@ dependencies {
     implementation Libs.Navigation.navigationDynamic
 
     implementation Libs.Log.timber
+    implementation Libs.Time.treetenabp
 }

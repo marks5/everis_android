@@ -70,6 +70,11 @@ object Libs {
         const val materialDesign = "com.google.android.material:material:$version"
     }
 
+    object Time {
+        private const val version = "1.2.1"
+        const val treetenabp = "com.jakewharton.threetenabp:threetenabp:$version"
+    }
+
     object Androidx {
         const val androidxCore = "androidx.core:core-ktx:1.3.2"
         const val appCompat = "androidx.appcompat:appcompat:1.2.0"
