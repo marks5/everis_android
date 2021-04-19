@@ -88,4 +88,5 @@ dependencies {
     implementation Libs.Navigation.navigationFragment
     implementation Libs.Navigation.navigationUi
     implementation Libs.Navigation.navigationDynamic
+    implementation Libs.Log.timber
 }

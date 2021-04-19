@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/daily"
+        android:id="@+id/dailyFragment"
         android:enabled="true"
         android:icon="@drawable/ic_clock"
         android:title="@string/daily_s"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/scrum"
+        android:id="@+id/scrumFragment"
         android:enabled="true"
         android:icon="@drawable/ic_calendar"
         android:title="@string/scrum"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/block"
+        android:id="@+id/blockFragment"
         android:enabled="true"
         android:icon="@drawable/ic_block"
         android:title="@string/blocks"
