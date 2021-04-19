@@ -31,9 +31,5 @@ class ScrumFragment : Fragment() {
         scrumAdapter = ScrumAdapter(mutableListOf())
         binding.rvTask.adapter = scrumAdapter
         scrumAdapter.updateList(mockList)
-
-        binding.tvDate.setOnClickListener {
-            viewModel.addDay()
-        }
     }
 }
