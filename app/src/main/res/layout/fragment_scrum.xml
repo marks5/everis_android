@@ -8,10 +8,13 @@
         android:layout_height="match_parent">
 
         <include
+            android:id="@+id/notification"
             layout="@layout/notification_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            app:titleText="@{@string/title_notification}"
+            app:notificationText="@{@string/notification_test}"
             app:layout_constraintBottom_toTopOf="@+id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

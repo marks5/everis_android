@@ -3,15 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="titleText"
+            type="String" />
+
+        <variable
+            name="notificationText"
+            type="String" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="311dp"
         android:layout_height="102dp"
-        android:background="@drawable/bg_notification">
+        android:background="@drawable/bg_notification"
+        android:id="@+id/notification_view">
 
         <TextView
             android:id="@+id/tv_title_notification"
             style="@style/TitleNotification"
-            android:text="@string/title_notification"
+            android:text="@{titleText}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_notification"
             app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/notification_test"
+            android:text="@{notificationText}"
             android:textColor="@color/item_no_select"
             android:textSize="13.33sp"
             app:layout_constraintStart_toEndOf="@id/iv_notification"
