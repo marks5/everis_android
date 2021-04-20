@@ -14,4 +14,5 @@
     <string name="title_notification">Título Notificação</string>
     <string name="notification_test">Notification Text</string>
     <string name="image_notification">ImageNotification</string>
+    <string name="txt_carregando">CARREGANDO…</string>
 </resources>

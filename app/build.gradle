@@ -48,6 +48,14 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    testOptions {
+        animationsDisabled true
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -62,6 +70,7 @@ dependencies {
     testImplementation Libs.Test.mockk
     testImplementation Libs.Test.mockito
     testImplementation Libs.Test.androidCore
+    testImplementation Libs.Test.ktxjUnit
 
     androidTestImplementation Libs.Test.androidCore
     androidTestImplementation Libs.Test.jUnitExt
@@ -77,6 +86,7 @@ dependencies {
     implementation Libs.Koin.koinCore
     implementation Libs.Koin.koinExt
     testImplementation Libs.Koin.koinTest
+    testImplementation Libs.Koin.koinTestJUnit
 
     implementation Libs.OkHttp.okHttp
     implementation Libs.OkHttp.okHttpInterceptor
@@ -88,5 +98,7 @@ dependencies {
     implementation Libs.Navigation.navigationFragment
     implementation Libs.Navigation.navigationUi
     implementation Libs.Navigation.navigationDynamic
+
     implementation Libs.Log.timber
+    implementation Libs.Time.treetenabp
 }
