@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import br.com.everis.sovamu.R
@@ -38,23 +37,18 @@ class ScrumFragment : Fragment(), SwipeListener, ScrumUI {
     }
 
     override fun onSwipeLeft() {
-        showAnimation(
-                binding.notification.notificationView,
-                AnimationUtils.loadAnimation(context, R.anim.move_right_to_left)
-        )
+        showAnimation(binding.notification.notificationView, R.anim.move_right_to_left)
     }
 
     override fun onSwipeRight() {
-        showAnimation(
-                binding.notification.notificationView,
-                AnimationUtils.loadAnimation(context, R.anim.move_left_to_right)
-        )
+        showAnimation(binding.notification.notificationView, R.anim.move_left_to_right)
     }
 
-    override fun showAnimation(view: View, animation: Animation) {
+    override fun showAnimation(view: View, animation: Int) {
         with(view) {
             setLayerType(View.LAYER_TYPE_HARDWARE, null)
-            startAnimation(animation)
+            startAnimation(AnimationUtils.loadAnimation(context, animation)
+            )
             visibility = View.GONE
         }
     }
