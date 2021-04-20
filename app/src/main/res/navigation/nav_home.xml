@@ -3,13 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/dailyFragment">
 
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/scrumFragment"
         android:name="br.com.everis.sovamu.feature.home.ui.ScrumFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_scrum"/>
+        tools:layout="@layout/fragment_scrum">
+    </fragment>
+
+    <fragment
+        android:id="@+id/blockFragment"
+        android:name="br.com.everis.sovamu.feature.home.ui.BlockFragment"
+        android:label="BlockFragment"
+        tools:layout="@layout/fragment_block">
+    </fragment>
+
+    <fragment
+        android:id="@+id/dailyFragment"
+        android:name="br.com.everis.sovamu.feature.home.ui.DailyFragment"
+        android:label="DailyFragment"
+        tools:layout="@layout/fragment_daily">
+    </fragment>
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="br.com.everis.sovamu.feature.home.ui.HomeActivity"
+        android:label="HomeActivity"
+        tools:layout="@layout/activity_home"/>
+
 
 </navigation>

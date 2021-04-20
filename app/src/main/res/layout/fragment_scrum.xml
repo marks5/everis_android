@@ -3,91 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <import type="br.com.everis.sovamu.utils.DateFormatUtil" />
-
-        <variable
-            name="viewModel"
-            type="br.com.everis.sovamu.feature.home.ui.ScrumViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_notification"
-            android:layout_width="match_parent"
+        <include
+            layout="@layout/notification_layout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_margin="20dp"
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_notification">
-
-            <ImageView
-                android:id="@+id/minusDay"
-                android:padding="10dp"
-                android:onClick="@{() -> viewModel.removeDay()}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tvDate"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:textSize="20sp"
-                android:gravity="center"
-                android:id="@+id/tvDate"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@{DateFormatUtil.getDateFormatted(viewModel.data)}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/addDay"
-                android:padding="10dp"
-                android:onClick="@{() -> viewModel.addDay()}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvDate"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="22dp"
+            android:textSize="24sp"
             android:text="@string/text_task"
             android:textColor="@color/rv_title"
-            android:textSize="24sp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
             app:layout_constraintBottom_toTopOf="@id/rv_task"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_task"
@@ -99,9 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_layout">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            tools:listitem="@layout/item_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

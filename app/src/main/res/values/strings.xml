@@ -4,11 +4,14 @@
     <string name="txt_senha">senha</string>
     <string name="btn_entrar">ENTRAR</string>
     <string name="txt_esqueci_senha">Esqueci minha senha</string>
+    <string name="txt_loading">Carregando</string>
     <string name="imageContentDescription">Logo do aplicativo</string>
     <string name="text_task">Trilho</string>
     <string name="scrum">Scrum</string>
     <string name="daily_s">Daily`s</string>
     <string name="blocks">Impedimentos</string>
     <string name="todo">TODO</string>
-    <string name="txt_carregando">CARREGANDO…</string>
+    <string name="title_notification">Título Notificação</string>
+    <string name="notification_test">Notification Text</string>
+    <string name="image_notification">ImageNotification</string>
 </resources>

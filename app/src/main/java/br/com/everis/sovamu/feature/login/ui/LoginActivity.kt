@@ -2,17 +2,11 @@ package br.com.everis.sovamu.feature.login.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import br.com.everis.sovamu.R
 import br.com.everis.sovamu.databinding.ActivityMainBinding
 import br.com.everis.sovamu.feature.home.ui.HomeActivity
 import br.com.everis.sovamu.feature.login.binding.SoVamuTextWatcher
-import br.com.everis.sovamu.feature.login.model.LoginUI
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -74,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun enableBtnEntrar(loading: Boolean) {
         binding.btnEntrar.isEnabled = !loading
-        if (loading) {
+        if(loading) {
             binding.btnEntrar.text = getString(R.string.txt_carregando)
         } else {
             binding.btnEntrar.text = getString(R.string.btn_entrar)
