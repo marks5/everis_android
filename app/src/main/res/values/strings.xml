@@ -11,4 +11,7 @@
     <string name="daily_s">Daily`s</string>
     <string name="blocks">Impedimentos</string>
     <string name="todo">TODO</string>
+    <string name="title_notification">Título Notificação</string>
+    <string name="notification_test">Notification Text</string>
+    <string name="image_notification">ImageNotification</string>
 </resources>
