@@ -61,6 +61,8 @@ object Libs {
         const val mockk = "io.mockk:mockk:$mockkVersion"
         const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
         const val androidCore = "androidx.arch.core:core-testing:2.1.0"
+        const val ktxjUnit = "androidx.test.ext:junit-ktx:$jUnitExtVersion"
+
     }
 
     object Material {
@@ -72,6 +74,13 @@ object Libs {
         const val androidxCore = "androidx.core:core-ktx:1.3.2"
         const val appCompat = "androidx.appcompat:appcompat:1.2.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+    }
+
+    object Navigation {
+        private const val version = "2.3.0"
+        const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$version"
+        const val navigationUi = "androidx.navigation:navigation-ui-ktx:$version"
+        const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:$version"
     }
 
 }
