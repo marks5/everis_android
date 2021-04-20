@@ -17,6 +17,7 @@ class ScrumFragment : Fragment(), SwipeListener, ScrumUI {
 
     private lateinit var binding: FragmentScrumBinding
     private lateinit var scrumAdapter: ScrumAdapter
+    private lateinit var notificationView: View
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -30,22 +31,25 @@ class ScrumFragment : Fragment(), SwipeListener, ScrumUI {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         scrumAdapter = ScrumAdapter(mutableListOf())
         binding.rvTask.adapter = scrumAdapter
         scrumAdapter.updateList(mockList)
-        binding.notification.notificationView.setOnTouchListener(OnSwipeTouchListener(this))
+
+        notificationView = binding.notification.notificationView
+        notificationView.setOnTouchListener(OnSwipeTouchListener(this))
     }
 
     override fun onSwipeLeft() {
-        showAnimation(binding.notification.notificationView, R.anim.move_right_to_left)
+        showAnimation(R.anim.move_right_to_left)
     }
 
     override fun onSwipeRight() {
-        showAnimation(binding.notification.notificationView, R.anim.move_left_to_right)
+        showAnimation(R.anim.move_left_to_right)
     }
 
-    override fun showAnimation(view: View, animation: Int) {
-        with(view) {
+    override fun showAnimation(animation: Int) {
+        with(notificationView) {
             setLayerType(View.LAYER_TYPE_HARDWARE, null)
             startAnimation(AnimationUtils.loadAnimation(context, animation)
             )
