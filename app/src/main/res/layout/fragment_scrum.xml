@@ -37,6 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/rv_notification">
 
             <ImageView
+                android:id="@+id/minusDay"
                 android:padding="10dp"
                 android:onClick="@{() -> viewModel.removeDay()}"
                 android:layout_width="wrap_content"
@@ -44,7 +45,7 @@
                 android:layout_margin="20dp"
                 android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tvDate"
+                app:layout_constraintEnd_toStartOf="@id/tvDate"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -61,6 +62,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/addDay"
                 android:padding="10dp"
                 android:onClick="@{() -> viewModel.addDay()}"
                 android:layout_width="wrap_content"
@@ -68,7 +70,7 @@
                 android:layout_margin="20dp"
                 android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvDate"
+                app:layout_constraintStart_toEndOf="@id/tvDate"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

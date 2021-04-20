@@ -7,6 +7,7 @@ object Libs {
         const val koinCore = "org.koin:koin-android:$version"
         const val koinExt = "org.koin:koin-androidx-viewmodel:$version"
         const val koinTest = "org.koin:koin-test:$version"
+        const val koinTestJUnit = "org.koin:koin-test-junit4:$version"
         const val pluginKoin = "org.koin:koin-gradle-plugin:$version"
     }
 

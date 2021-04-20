@@ -86,6 +86,7 @@ dependencies {
     implementation Libs.Koin.koinCore
     implementation Libs.Koin.koinExt
     testImplementation Libs.Koin.koinTest
+    testImplementation Libs.Koin.koinTestJUnit
 
     implementation Libs.OkHttp.okHttp
     implementation Libs.OkHttp.okHttpInterceptor
