@@ -36,6 +36,9 @@ class ScrumFragment : Fragment(), SwipeListener, ScrumUI {
         binding.rvTask.adapter = scrumAdapter
         scrumAdapter.updateList(mockList)
 
+        binding.notificationText = getString(R.string.notification_test)
+        binding.titleNotification = getString(R.string.title_notification)
+
         notificationView = binding.notification.notificationView
         notificationView.setOnTouchListener(OnSwipeTouchListener(this))
     }
@@ -51,8 +54,7 @@ class ScrumFragment : Fragment(), SwipeListener, ScrumUI {
     override fun showAnimation(animation: Int) {
         with(notificationView) {
             setLayerType(View.LAYER_TYPE_HARDWARE, null)
-            startAnimation(AnimationUtils.loadAnimation(context, animation)
-            )
+            startAnimation(AnimationUtils.loadAnimation(context, animation))
             visibility = View.GONE
         }
     }
