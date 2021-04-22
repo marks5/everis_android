@@ -3,28 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".feature.home.ui.HomeActivity">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_home" />
+            tools:context=".feature.home.ui.HomeActivity">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/home_bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/gradient_bottom_navigation"
-            app:menu="@menu/bottom_menu"
-            app:itemIconTint="@color/bottom_nav_color"
-            app:itemTextColor="@color/bottom_nav_color" />
+            <com.google.android.material.appbar.AppBarLayout
+                android:background="@drawable/appbar"
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Widget.AppCompat.Toolbar"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutDescription="@xml/activity_home_scene">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:id="@+id/asd"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/tv"
+                        android:text="Meu texto textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:background="@drawable/appbar_perfil"
+                        android:id="@+id/im"
+                        android:layout_width="0dp"
+                        android:layout_height="10dp" />
+
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_home" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/home_bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/gradient_bottom_navigation"
+                app:itemIconTint="@color/bottom_nav_color"
+                app:itemTextColor="@color/bottom_nav_color"
+                app:menu="@menu/bottom_menu" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
