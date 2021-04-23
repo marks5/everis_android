@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="titleText"
             type="String" />
@@ -11,13 +14,13 @@
         <variable
             name="notificationText"
             type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="311dp"
         android:layout_height="102dp"
-        android:background="@drawable/bg_notification"
-        android:id="@+id/notification_view">
+        android:background="@drawable/bg_notification">
 
         <TextView
             android:id="@+id/tv_title_notification"

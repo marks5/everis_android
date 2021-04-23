@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="title_notification"
             type="String" />
@@ -11,6 +12,7 @@
         <variable
             name="notification_text"
             type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:visibility="gone"
             app:titleText="@{title_notification}"
             app:notificationText="@{notification_text}"
             app:layout_constraintBottom_toTopOf="@+id/tv_title"

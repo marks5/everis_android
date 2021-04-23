@@ -20,3 +20,20 @@ val mockList = mutableListOf(
                 size = "4.39Mb"
         )
 )
+
+data class MockNotification(val title: String, val message: String)
+
+val mockListNotification = listOf(
+        MockNotification(
+                title = "First Notification ",
+                message = "Text first notification"
+        ),
+        MockNotification(
+                title = "Second Notification",
+                message = "Text second notification"
+        ),
+        MockNotification(
+                title = "Third Notification",
+                message = "Text third notification"
+        )
+)
