@@ -13,4 +13,6 @@
     <string name="todo">TODO</string>
     <string name="txt_carregando">CARREGANDO...</string>
     <string name="dialog_informe_email">Informe seu e-mail</string>
+    <string name="enviar_email">Enviar</string>
+    <string name="cancelar_envio_email">Cancelar</string>
 </resources>

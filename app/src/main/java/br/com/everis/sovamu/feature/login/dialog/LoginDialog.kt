@@ -20,12 +20,12 @@ class LoginDialog(private val viewGroup: ViewGroup, private val context: Context
                 .setIcon(R.drawable.ic_baseline_email_24)
                 .setTitle((R.string.dialog_informe_email))
                 .setView(viewCriada)
-                .setPositiveButton("Enviar") {dialog, with ->
+                .setPositiveButton(context.getString(R.string.enviar_email)) { dialog, with ->
                     if(!editText?.text.isNullOrEmpty()) {
                         Toast.makeText(context,"e-mail ${editText.text} enviado", Toast.LENGTH_LONG).show()
                     }
                 }
-                .setNegativeButton("Cancelar"){dialog, with ->}
+                .setNegativeButton(context.getString(R.string.cancelar_envio_email)){ dialog, with ->}
                 .setCancelable(false)
                 .show()
     }
