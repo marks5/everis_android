@@ -22,6 +22,7 @@ sealed class ScrumViewAction {
 }
 
 class ScrumViewModel(
+        private val list: List<MockNotification> = mockListNotification,
         mainDispatcher: CoroutineDispatcher,
         ioDispatcher: CoroutineDispatcher
 ) : BaseViewModel(mainDispatcher, ioDispatcher) {
@@ -35,20 +36,20 @@ class ScrumViewModel(
     fun getNotification() {
         _scrumView.postValue(ScrumViewAction.Loading(true))
 
-        if (mockListNotification.isNotEmpty() && index < mockListNotification.size) {
+        if (list.isNotEmpty() && index < list.size) {
             _scrumView.postValue(ScrumViewAction.Loading(false))
-            _scrumView.value = ScrumViewAction.ShowNotification(mockListNotification[index])
+            _scrumView.value = ScrumViewAction.ShowNotification(list[index])
             index++
-        }
+        } else _scrumView.postValue(ScrumViewAction.Loading(false))
     }
 
     fun actionNotification(showCardAnimation: Int, hideCardAnimation: Int) {
         _scrumView.value = ScrumViewAction.Loading(true)
 
         when {
-            (index < mockListNotification.size) -> {
+            (index < list.size) -> {
                 _scrumView.value = ScrumViewAction.StartAnimationNotification(
-                        mockListNotification[index],
+                        list[index],
                         showCardAnimation,
                         hideCardAnimation
                 )
@@ -56,7 +57,7 @@ class ScrumViewModel(
                 _scrumView.value = ScrumViewAction.Loading(false)
             }
 
-            (index == mockListNotification.size) -> {
+            (index == list.size) -> {
                 _scrumView.value = ScrumViewAction.EndAnimationNotification(hideCardAnimation)
                 _scrumView.value = ScrumViewAction.Loading(false)
             }
