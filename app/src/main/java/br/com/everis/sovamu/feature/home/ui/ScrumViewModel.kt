@@ -22,9 +22,9 @@ sealed class ScrumViewAction {
 }
 
 class ScrumViewModel(
-        private val list: List<MockNotification> = mockListNotification,
         mainDispatcher: CoroutineDispatcher,
-        ioDispatcher: CoroutineDispatcher
+        ioDispatcher: CoroutineDispatcher,
+        private val list: List<MockNotification> = mockListNotification
 ) : BaseViewModel(mainDispatcher, ioDispatcher) {
 
     private val _scrumView by lazy { MutableLiveData<ScrumViewAction>() }

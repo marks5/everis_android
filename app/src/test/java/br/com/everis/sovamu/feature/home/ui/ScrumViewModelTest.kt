@@ -5,7 +5,6 @@ package br.com.everis.sovamu.feature.home.ui
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import br.com.everis.sovamu.R
-import br.com.everis.sovamu.feature.home.model.mockListNotification
 import com.nhaarman.mockitokotlin2.atLeast
 import com.nhaarman.mockitokotlin2.verify
 import junit.framework.Assert.assertNotNull
@@ -39,7 +38,7 @@ class ScrumViewModelTest {
     @Test
     fun `check state empty list - getNotification`() {
 
-        viewModel = ScrumViewModel(listOf(), mDispatcher, mDispatcher)
+        viewModel = ScrumViewModel(mDispatcher, mDispatcher, listOf())
         viewModel.scrumView.observeForever(observer)
         viewModel.getNotification()
 
@@ -50,7 +49,7 @@ class ScrumViewModelTest {
     @Test
     fun `check state - getNotification`() {
 
-        viewModel = ScrumViewModel(mockListNotification, mDispatcher, mDispatcher)
+        viewModel = ScrumViewModel(mDispatcher, mDispatcher)
         viewModel.scrumView.observeForever(observer)
         viewModel.getNotification()
 
@@ -62,7 +61,7 @@ class ScrumViewModelTest {
     @Test
     fun `check state startAnimation - actionNotification`() {
 
-        viewModel = ScrumViewModel(mockListNotification, mDispatcher, mDispatcher)
+        viewModel = ScrumViewModel(mDispatcher, mDispatcher)
         viewModel.scrumView.observeForever(observer)
         viewModel.actionNotification(R.anim.return_from_left, R.anim.move_right_to_left)
 
@@ -74,7 +73,7 @@ class ScrumViewModelTest {
     @Test
     fun `check state endAnimation - actionNotification`() {
 
-        viewModel = ScrumViewModel(listOf(), mDispatcher, mDispatcher)
+        viewModel = ScrumViewModel(mDispatcher, mDispatcher, listOf())
         viewModel.scrumView.observeForever(observer)
         viewModel.actionNotification(R.anim.return_from_left, R.anim.move_right_to_left)
 
