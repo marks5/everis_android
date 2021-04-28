@@ -66,6 +66,7 @@ dependencies {
     androidTestImplementation Libs.Test.androidCore
     androidTestImplementation Libs.Test.jUnitExt
     androidTestImplementation Libs.Test.espresso
+    androidTestImplementation Libs.Test.espressoContrib
 
     implementation Libs.Retrofit.retrofit
     implementation Libs.Retrofit.retrofitMoshi
