@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import br.com.everis.sovamu.R
 import br.com.everis.sovamu.databinding.FragmentDailyBinding
 
 class DailyFragment : Fragment() {
@@ -18,5 +20,14 @@ class DailyFragment : Fragment() {
     ): View {
         binding = FragmentDailyBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.textTeste.setOnClickListener {
+            findNavController().navigate(R.id.action_dailyFragment_to_updateUserFragment)
+        }
+
     }
 }

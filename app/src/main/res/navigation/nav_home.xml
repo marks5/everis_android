@@ -25,6 +25,9 @@
         android:name="br.com.everis.sovamu.feature.home.ui.DailyFragment"
         android:label="DailyFragment"
         tools:layout="@layout/fragment_daily">
+        <action
+            android:id="@+id/action_dailyFragment_to_updateUserFragment"
+            app:destination="@id/updateUserFragment" />
     </fragment>
 
     <activity
@@ -32,6 +35,10 @@
         android:name="br.com.everis.sovamu.feature.home.ui.HomeActivity"
         android:label="HomeActivity"
         tools:layout="@layout/activity_home"/>
+    <fragment
+        android:id="@+id/updateUserFragment"
+        android:name="br.com.everis.sovamu.feature.updateuser.ui.UpdateUserFragment"
+        android:label="UpdateUserFragment" />
 
 
 </navigation>

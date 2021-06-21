@@ -14,4 +14,22 @@
     <string name="title_notification">Título Notificação</string>
     <string name="notification_test">Notification Text</string>
     <string name="image_notification">ImageNotification</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_nome">Nome</string>
+    <string name="nome_user">Nome</string>
+    <string name="apelido_user">Apelido</string>
+    <string name="email_user">E-mail</string>
+    <string name="confirmacao_senha">Confirmação</string>
+    <string name="senha_nova_user">Senha Nova</string>
+    <string name="senha_user">Senha</string>
+    <string name="cep_user">Cep</string>
+    <string name="buscar_cep_user">Buscar Cep</string>
+    <string name="logradouro_user">Logradouro</string>
+    <string name="bairro_user">Bairro</string>
+    <string name="localidade_user">Localidade</string>
+    <string name="compl_user">Nº/Compl</string>
+    <string name="uf_user">UF</string>
+    <string name="enviar_dados_user">Enviar Dados</string>
+    <string name="msg_error_zipcode">Campo cep obrigatório</string>
 </resources>
