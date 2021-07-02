@@ -1,25 +1,15 @@
 package br.com.everis.sovamu.feature.updateuser.ui
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import br.com.everis.sovamu.R.*
 import br.com.everis.sovamu.feature.updateuser.model.UpdateUser
 import br.com.everis.sovamu.feature.updateuser.usecase.UpdateUserUseCase
 import br.com.everis.sovamu.ui.BaseViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-
-const val MSG_NAME = "Campo nome obrigatório !"
-const val MSG_SURNAME = "Campo apelido obrigatório !"
-const val MSG_EMAIL = "Campo e-mail obrigatório !"
-const val MSG_PASSWORD = "Campo senha obrigatório !"
-const val MSG_ZIPCODE = "Campo cep obrigatório !"
-const val MSG_PUBLICPLACE = "Campo logradouro obrigatório !"
-const val MSG_COMPLEMENT = "Campo complemento obrigatório !"
-const val MSG_DISTRICT = "Campo bairro obrigatório !"
-const val MSG_LOCALITY = "Campo localidade obrigatório !"
-const val MSG_UF = "Campo UF obrigatório !"
-
 
 sealed class UpdateUserViewAction {
     open class Success(val data: UpdateUser) : UpdateUserViewAction()
@@ -39,6 +29,12 @@ class UpdateUserViewModel(
 
     val zipCode by lazy { MutableLiveData<String>("") }
     val setFocus by lazy { MutableLiveData<String>("") }
+    val name by lazy { MutableLiveData<String>("") }
+    val surname by lazy { MutableLiveData<String>("") }
+    val email by lazy { MutableLiveData<String>("") }
+    val password by lazy { MutableLiveData<String>("") }
+    val passwordNew by lazy { MutableLiveData<String>("") }
+    val confirmation by lazy { MutableLiveData<String>("") }
 
     private val _messageAlert by lazy { MutableLiveData<String>("") }
     val messageAlert: LiveData<String>
@@ -48,8 +44,8 @@ class UpdateUserViewModel(
     val actionView: LiveData<UpdateUserViewAction>
         get() = _actionView
 
-    fun putUpdateUser(updateUser: UpdateUser) {
-        if (validadeUpdateUser(updateUser)) {
+    fun putUpdateUser(updateUser: UpdateUser, context: Context) {
+        if (validadeUpdateUser(updateUser, context)) {
             _actionView.value = UpdateUserViewAction.Loading(true)
             mUiScope.launch { execute() }
         }
@@ -74,38 +70,38 @@ class UpdateUserViewModel(
         }.await().fold(::showError, ::showSuccess)
     }
 
-    private fun validadeUpdateUser(updateUser: UpdateUser): Boolean {
+    private fun validadeUpdateUser(updateUser: UpdateUser, context: Context): Boolean {
         updateUser.apply {
             if (name.isEmpty()) {
-                _messageAlert.value = MSG_NAME
+                _messageAlert.value = context.getString(string.msg_name)
                 return false
             } else if (surname.isEmpty()) {
-                _messageAlert.value = MSG_SURNAME
+                _messageAlert.value = context.getString(string.msg_surname)
                 return false
             } else if (email.isEmpty()) {
-                _messageAlert.value = MSG_EMAIL
+                _messageAlert.value = context.getString(string.msg_email)
                 return false
             } else if (password.isEmpty()) {
-                _messageAlert.value = MSG_PASSWORD
+                _messageAlert.value = context.getString(string.msg_password)
                 return false
             } else if (cep.isEmpty()) {
-                _messageAlert.value = MSG_ZIPCODE
+                _messageAlert.value = context.getString(string.msg_zipcode)
                 return false
             } else if (logradouro.isEmpty()) {
-                _messageAlert.value = MSG_PUBLICPLACE
+                _messageAlert.value = context.getString(string.msg_publicplace)
                 return false
             } else if (complemento.isEmpty()) {
-                _messageAlert.value = MSG_COMPLEMENT
+                _messageAlert.value = context.getString(string.msg_complement)
                 return false
             } else if (bairro.isEmpty()) {
-                _messageAlert.value = MSG_DISTRICT
+                _messageAlert.value = context.getString(string.msg_district)
                 return false
             } else if (localidade.isEmpty()) {
-                _messageAlert.value = MSG_LOCALITY
+                _messageAlert.value = context.getString(string.msg_locality)
                 return false
             }
             if (uf.isEmpty()) {
-                _messageAlert.value = MSG_UF
+                _messageAlert.value = context.getString(string.msg_uf)
                 return false
             }
         }
@@ -116,8 +112,8 @@ class UpdateUserViewModel(
     val zipCodeAction: LiveData<UpdateUserViewAction>
         get() = _zipCodeAction
 
-    fun getBuscarCep() {
-        if (validateCepInput(zipCode.value.toString())) {
+    fun getBuscarCep(context: Context) {
+        if (validateCepInput(zipCode.value.toString(),context)) {
             _zipCodeAction.value = UpdateUserViewAction.Loading(true)
             mUiScope.launch { executeEndereco(zipCode.value.toString()) }
         }
@@ -136,8 +132,6 @@ class UpdateUserViewModel(
             _zipCodeAction.postValue(UpdateUserViewAction.Loading(false))
             _zipCodeAction.postValue(UpdateUserViewAction.Success(data))
             _updateUser.postValue(data)
-            _messageAlert.postValue("")
-            setFocus.postValue("true")
         }
 
         mIoScope.async {
@@ -145,9 +139,9 @@ class UpdateUserViewModel(
         }.await().fold(::showCepError, ::showCepSuccess)
     }
 
-    private fun validateCepInput(cep: String): Boolean {
+    private fun validateCepInput(cep: String, context: Context): Boolean {
         if (cep.isEmpty()) {
-            _messageAlert.value = MSG_ZIPCODE
+            _messageAlert.value = context.getString(string.msg_zipcode)
             return false
         }
         return true

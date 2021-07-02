@@ -1,11 +1,15 @@
 package br.com.everis.sovamu.feature.updateuser.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import br.com.everis.sovamu.databinding.FragmentUpdateUserBinding
+import br.com.everis.sovamu.feature.login.binding.setErrorVisibility
+import br.com.everis.sovamu.feature.updateuser.binding.setErrorEnabled
 import br.com.everis.sovamu.feature.updateuser.model.UpdateUser
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -31,10 +35,17 @@ class UpdateUserFragment : Fragment() {
         binding.viewModel = updateUserViewModel
         binding.lifecycleOwner = this
 
-        submitUpdateUser()
+        submitZipCde(requireContext())
+        submitUpdateUser(requireContext())
     }
 
-    private fun submitUpdateUser() {
+    private fun submitZipCde(context: Context) {
+        binding.btnBuscarCep.setOnClickListener {
+            updateUserViewModel.getBuscarCep(context)
+        }
+    }
+
+    private fun submitUpdateUser(context: Context) {
         binding.fabSubmit.setOnClickListener {
             val updateUser = UpdateUser(
                 binding.edtNome.text.toString(),
@@ -50,7 +61,7 @@ class UpdateUserFragment : Fragment() {
                 binding.edtLocalidade.text.toString(),
                 binding.edtUF.text.toString()
             )
-            updateUserViewModel.putUpdateUser(updateUser)
+            updateUserViewModel.putUpdateUser(updateUser, context)
             observeUpdateUser()
         }
     }

@@ -48,7 +48,8 @@
                         android:hint="@string/nome_user"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:text="@{viewModel.updateUser.name}"
+                        android:text="@={viewModel.name}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +70,8 @@
                         android:hint="@string/apelido_user"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:text="@{viewModel.updateUser.surname}"
+                        android:text="@={viewModel.surname}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +94,8 @@
                         android:hint="@string/email_user"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
-                        android:text="@{viewModel.updateUser.email}"
+                        android:text="@={viewModel.email}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +117,8 @@
                         android:hint="@string/senha_user"
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:text="@{viewModel.updateUser.password}"
+                        android:text="@={viewModel.password}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,7 +139,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/senha_nova_user"
                         android:inputType="textPassword"
-                        android:text="@{viewModel.updateUser.passwordNew}"
+                        android:text="@={viewModel.passwordNew}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/confirmacao_senha"
                         android:inputType="textPassword"
-                        android:text="@{viewModel.updateUser.confirmation}"
+                        android:text="@={viewModel.confirmation}"
                         android:textSize="16sp"
                         app:layout_constraintLeft_toLeftOf="@+id/guideline" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -168,8 +172,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    app:endIconDrawable="@drawable/ic_add_location"
-                    app:endIconMode="custom"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@+id/tiNovaSenha">
@@ -182,6 +184,7 @@
                         android:inputType="number"
                         android:maxLength="8"
                         android:text="@={viewModel.zipCode}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -194,7 +197,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/buscar_cep_user"
-                    android:onClick="@{() -> viewModel.getBuscarCep()}"
                     android:textColorHint="@color/white"
                     app:layout_constraintLeft_toLeftOf="@+id/guideline"
                     app:layout_constraintRight_toRightOf="parent"
@@ -219,6 +221,7 @@
                         android:inputType="text"
                         android:maxLines="1"
                         android:text="@{viewModel.updateUser.logradouro}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -241,6 +244,7 @@
                         android:hint="@string/compl_user"
                         android:inputType="text"
                         requestFocus="@{viewModel.setFocus}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -262,6 +266,7 @@
                         android:hint="@string/bairro_user"
                         android:inputType="text"
                         android:text="@{viewModel.updateUser.bairro}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -283,6 +288,7 @@
                         android:hint="@string/localidade_user"
                         android:inputType="text"
                         android:text="@{viewModel.updateUser.localidade}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -305,6 +311,7 @@
                         android:inputType="text"
                         android:maxLength="2"
                         android:text="@{viewModel.updateUser.uf}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
                         android:textAllCaps="true"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>

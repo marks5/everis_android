@@ -32,4 +32,15 @@
     <string name="uf_user">UF</string>
     <string name="enviar_dados_user">Enviar Dados</string>
     <string name="msg_error_zipcode">Campo cep obrigatório</string>
+    <string name="msg_name">Campo nome obrigatório !</string>
+    <string name="msg_surname">Campo apelido obrigatório !</string>
+    <string name="msg_email">Campo e-mail obrigatório !</string>
+    <string name="msg_password">Campo senha obrigatório !</string>
+    <string name="msg_zipcode">Campo cep obrigatório !</string>
+    <string name="msg_publicplace">Campo logradouro obrigatório !</string>
+    <string name="msg_complement">Campo complemento obrigatório !</string>
+    <string name="msg_district">Campo bairro obrigatório !</string>
+    <string name="msg_locality">Campo localidade obrigatório !</string>
+    <string name="msg_uf">Campo UF obrigatório !</string>
+    <string name="preencher_campos">Preencher os campos em vermelho</string>
 </resources>

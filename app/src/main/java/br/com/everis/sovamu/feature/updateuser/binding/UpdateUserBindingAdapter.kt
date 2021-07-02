@@ -4,18 +4,18 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.BindingAdapter
 import br.com.everis.sovamu.R
+import br.com.everis.sovamu.feature.login.binding.setErrorVisibility
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("setErrorAlert")
 fun setErrorAlert(view: View, msgError: String?) {
     if (!msgError.isNullOrEmpty()) {
-        view.requestFocus()
         val builder = AlertDialog.Builder(view.context)
         with(builder)
         {
             setIcon(R.drawable.ic_error)
-            setTitle(R.string.app_name)
+            setTitle(context.getString(R.string.preencher_campos))
             setMessage(msgError)
             setPositiveButton("OK") { dialog, whith ->  dialog.dismiss() }
             setCancelable(false)
@@ -23,7 +23,6 @@ fun setErrorAlert(view: View, msgError: String?) {
         }
     }
 }
-
 
 @BindingAdapter("requestFocus")
 fun requestFocus(view: TextInputEditText, isFocus:String?) {
@@ -33,4 +32,12 @@ fun requestFocus(view: TextInputEditText, isFocus:String?) {
     }
 }
 
+@BindingAdapter("setErrorEnabled")
+fun setErrorEnabled(view: TextInputEditText, msgError: String?) {
+    if (!msgError.isNullOrEmpty() && view.text!!.isEmpty()) {
+        view.error = "Campo obrigatorio"
+    } else {
+        view.error = null
+    }
+}
 
