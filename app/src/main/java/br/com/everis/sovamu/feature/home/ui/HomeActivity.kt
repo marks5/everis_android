@@ -7,7 +7,7 @@ import androidx.navigation.ui.setupWithNavController
 import br.com.everis.sovamu.R
 import br.com.everis.sovamu.databinding.ActivityHomeBinding
 
-class HomeActivity: AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -26,4 +26,6 @@ class HomeActivity: AppCompatActivity() {
             binding.homeBottomNavigation.setupWithNavController(navController)
         }
     }
+
+
 }

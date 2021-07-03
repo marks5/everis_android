@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.everis.sovamu.feature.updateuser.ui.UpdateUserViewModel" />
+
+        <variable
+            name="model"
+            type="br.com.everis.sovamu.feature.updateuser.model.UpdateUser" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:keepScreenOn="true"
+            tools:context=".feature.updateuser.ui.UpdateUserFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".feature.updateuser.ui.UpdateUserFragment">
+
+                <!-- Nome -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiNome"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nome_user"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text="@={viewModel.name}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Apelido -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiApelido"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tiNome">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtApelido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/apelido_user"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text="@={viewModel.surname}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- e-mail -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiEmail"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tiApelido"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tiApelido"
+                    app:layout_constraintTop_toBottomOf="@+id/tiApelido">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email_user"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:text="@={viewModel.email}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- senha -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiSenha"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tiEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/tiEmail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/senha_user"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:text="@={viewModel.password}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- senha Nova -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiNovaSenha"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/tiSenha">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNovaSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/senha_nova_user"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.passwordNew}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- confirmacao senha -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiConfirmacaoSenha"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tiSenha">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtConfirmacao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/confirmacao_senha"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.confirmation}"
+                        android:textSize="16sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/guideline" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--cep -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCep"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/tiNovaSenha">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/cep_user"
+                        android:inputType="number"
+                        android:maxLength="8"
+                        android:text="@={viewModel.zipCode}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Buscar cep -->
+                <Button
+                    android:id="@+id/btnBuscarCep"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="24dp"
+                    android:hint="@string/buscar_cep_user"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tiNovaSenha" />
+
+                <!-- logradouro -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiLogradouro"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/btnBuscarCep"
+                    app:layout_constraintTop_toBottomOf="@+id/tiCep">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtLogradouro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/logradouro_user"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text="@{viewModel.updateUser.logradouro}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- complemento -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCompl"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/tiLogradouro">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCompl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/compl_user"
+                        android:inputType="text"
+                        requestFocus="@{viewModel.setFocus}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- bairro -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiBairro"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tiLogradouro">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtBairro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/bairro_user"
+                        android:inputType="text"
+                        android:text="@{viewModel.updateUser.bairro}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- localidade -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiLocalidade"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/tiCompl">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtLocalidade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/localidade_user"
+                        android:inputType="text"
+                        android:text="@{viewModel.updateUser.localidade}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Uf -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiUF"
+                    style="@style/TextInputSoVamu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintRight_toRightOf="@id/guideline75"
+                    app:layout_constraintTop_toBottomOf="@+id/tiBairro">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtUF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/uf_user"
+                        android:inputType="text"
+                        android:maxLength="2"
+                        android:text="@{viewModel.updateUser.uf}"
+                        setErrorEnabled="@{viewModel.messageAlert}"
+                        android:textAllCaps="true"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- enviar dados -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabSubmit"
+                    setErrorAlert="@{viewModel.messageAlert}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:contentDescription="@string/enviar_dados_user"
+                    android:src="@drawable/ic_done"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tiBairro" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.50" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline75"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.75" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

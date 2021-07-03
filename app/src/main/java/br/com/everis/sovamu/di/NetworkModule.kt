@@ -8,6 +8,8 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+private const val URL_BASE = "https://viacep.com.br/ws/"
+
 val networkModule = module {
 
     single {
@@ -20,7 +22,8 @@ val networkModule = module {
 
         Retrofit.Builder()
             .client(client)
-            .baseUrl(BuildConfig.SERVER_URL)
+            //.baseUrl(BuildConfig.SERVER_URL)
+            .baseUrl(URL_BASE)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()

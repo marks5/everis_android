@@ -9,3 +9,4 @@ class LoginUseCaseImpl(private val loginRepository: LoginRepository) : LoginUseC
     override suspend fun execute(): Either<String, UserData> =
        loginRepository.getUserData()
 }
+
