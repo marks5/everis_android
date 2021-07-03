@@ -14,4 +14,7 @@
     <string name="title_notification">Título Notificação</string>
     <string name="notification_test">Notification Text</string>
     <string name="image_notification">ImageNotification</string>
+    <string name="dialog_informe_email">Informe seu e-mail</string>
+    <string name="enviar_email">Enviar</string>
+    <string name="cancelar_envio_email">Cancelar</string>
 </resources>
