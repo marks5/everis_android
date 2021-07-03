@@ -66,8 +66,33 @@ class LoginActivityTest {
         robots.checarBtnEntrarDisabled()
     }
 
+    @Test
+    fun showDialogSubmitPasswordEmail() {
+        scenario = launch(robots.intent)
+        robots.clickEsqueciMinhaSenha()
+
+        robots.insereEmailEsqueciMinhaSenha("teste@teste.com.br")
+            .fecharTeclado()
+
+        robots.clicaSetPositiveButtonDialog()
+    }
+
+    @Test
+    fun showDialogCancelSubmitEmail() {
+        scenario = launch(robots.intent)
+        robots.clickEsqueciMinhaSenha()
+
+        robots.insereEmailEsqueciMinhaSenha("teste@teste.com.br")
+                .fecharTeclado()
+
+        robots.clicaSetNegativeButtonDialog()
+    }
+
+
     @After
     fun tearDown() {
         scenario.close()
     }
+
+
 }

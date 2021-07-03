@@ -1,10 +1,12 @@
 package br.com.everis.sovamu.feature.login.ui
 
 import android.os.Bundle
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import br.com.everis.sovamu.R
 import br.com.everis.sovamu.databinding.ActivityMainBinding
 import br.com.everis.sovamu.feature.login.binding.SoVamuTextWatcher
+import br.com.everis.sovamu.feature.login.dialog.LoginDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -24,12 +26,12 @@ class LoginActivity : AppCompatActivity() {
 
         observeData()
 
-        binding.edtEmail.addTextChangedListener(
-                SoVamuTextWatcher(viewModel = mainViewModel, SoVamuTextWatcher.Identifier.EMAIL)
-        )
-        binding.edtPassword.addTextChangedListener(
-                SoVamuTextWatcher(viewModel = mainViewModel, SoVamuTextWatcher.Identifier.PASSWORD)
-        )
+        binding.edtEmail.addTextChangedListener(SoVamuTextWatcher(viewModel = mainViewModel, SoVamuTextWatcher.Identifier.EMAIL))
+        binding.edtPassword.addTextChangedListener(SoVamuTextWatcher(viewModel = mainViewModel, SoVamuTextWatcher.Identifier.PASSWORD))
+
+        binding.tvLoginEsqueciSenha.setOnClickListener {
+            LoginDialog(window.decorView as ViewGroup,this).showMyPasswordDialog()
+        }
     }
 
     private fun observeData() {
