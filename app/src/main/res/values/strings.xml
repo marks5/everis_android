@@ -43,4 +43,9 @@
     <string name="msg_locality">Campo localidade obrigatório !</string>
     <string name="msg_uf">Campo UF obrigatório !</string>
     <string name="preencher_campos">Preencher os campos em vermelho</string>
+    <string name="dialog_informe_email">Informe seu e-mail</string>
+    <string name="enviar_email">Enviar</string>
+    <string name="cancelar_envio_email">Cancelar</string>
+    <string name="title_alert_dialog">Atenção !</string>
+
 </resources>

@@ -15,7 +15,7 @@ fun setErrorAlert(view: View, msgError: String?) {
         with(builder)
         {
             setIcon(R.drawable.ic_error)
-            setTitle(context.getString(R.string.preencher_campos))
+            setTitle(context.getString(R.string.title_alert_dialog))
             setMessage(msgError)
             setPositiveButton("OK") { dialog, whith ->  dialog.dismiss() }
             setCancelable(false)

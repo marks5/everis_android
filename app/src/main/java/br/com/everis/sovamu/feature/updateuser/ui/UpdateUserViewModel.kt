@@ -73,35 +73,35 @@ class UpdateUserViewModel(
     private fun validadeUpdateUser(updateUser: UpdateUser, context: Context): Boolean {
         updateUser.apply {
             if (name.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_name)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (surname.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_surname)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (email.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_email)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (password.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_password)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (cep.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_zipcode)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (logradouro.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_publicplace)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (complemento.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_complement)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (bairro.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_district)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             } else if (localidade.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_locality)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             }
             if (uf.isEmpty()) {
-                _messageAlert.value = context.getString(string.msg_uf)
+                _messageAlert.value = context.getString(string.preencher_campos)
                 return false
             }
         }
@@ -141,7 +141,7 @@ class UpdateUserViewModel(
 
     private fun validateCepInput(cep: String, context: Context): Boolean {
         if (cep.isEmpty()) {
-            _messageAlert.value = context.getString(string.msg_zipcode)
+            _messageAlert.value = context.getString(string.preencher_campos)
             return false
         }
         return true
