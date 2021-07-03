@@ -11,6 +11,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import br.com.everis.sovamu.R
+import br.com.everis.sovamu.feature.login.dialog.LoginDialog
 import org.hamcrest.CoreMatchers.not
 import org.junit.runner.RunWith
 
@@ -68,4 +69,44 @@ class LoginRobots {
         Espresso.closeSoftKeyboard()
         return this
     }
+
+    /* textView tvLoginEsqueciSenha  */
+    fun textViewEsqueciMinhaSenha() :ViewInteraction {
+        return onView(withId(R.id.tvLoginEsqueciSenha))
+    }
+
+    fun clickEsqueciMinhaSenha() :LoginRobots {
+        textViewEsqueciMinhaSenha().perform(click())
+        return this
+    }
+
+    fun textEmailViewEsqueciMinhaSenha(): ViewInteraction {
+        return onView(withId(R.id.text_email))
+    }
+
+    fun insereEmailEsqueciMinhaSenha(text: String): LoginRobots {
+        textEmailViewEsqueciMinhaSenha().perform(typeText(text))
+        return this
+    }
+
+    fun setPositiveButtonDialog() :ViewInteraction {
+        return onView(withText(R.string.enviar_email))
+    }
+
+    fun setNegativeButtonDialog(): ViewInteraction {
+        return onView(withText(R.string.cancelar_envio_email))
+    }
+
+    fun clicaSetPositiveButtonDialog(): LoginRobots {
+        setPositiveButtonDialog().perform(click())
+        return this
+    }
+
+    fun clicaSetNegativeButtonDialog(): LoginRobots {
+        setNegativeButtonDialog().perform(click())
+        return this
+    }
+    /* *****************************  */
+
+
 }
